@@ -1,163 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
- <head> 
-  <meta charset="utf-8" /> 
-  <title>Hexo</title> 
-  <link rel="icon" href="/images/fav.png" /> 
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" /> 
-  <link rel="canonical" href="http://example.com" /> 
-  <link rel="stylesheet" href="/css/style.css" /> 
-  <link rel="stylesheet" href="/css/mdui.css" importance="high"/> 
-  
-  <script src="/js/mdui.min.js" importance="high"></script>
-  <style>
-   @import url("/css/iconfont.css");
-  </style>      
- <meta name="generator" content="Hexo 8.1.1"></head> 
- <body> 
-   <script>
-    let images = "https://api.ee123.net/img/bingimg/dayimg.jpg"
-    images = images.split(',')
-    let currentIndex = 0;
-
-    function changeBackground() {
-        //document.getElementById("bg").style.opacity = 1; // 渐隐
-        setTimeout(() => {
-            document.getElementById("bg").style.backgroundImage = `url(${images[currentIndex]})`;
-            document.getElementById("bg").style.opacity = 1; // 渐显
-            currentIndex = (currentIndex + 1) % images.length;
-        }, 1000); // 与transition时间一致
-    }
-
-    changeBackground()
-    setInterval(changeBackground, 15000); // 每15秒切换一次背景
-</script>
-  <div class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-loaded"> 
-   <!-- background --> 
-   <div id="bg" class="index_bg"></div> 
-   <!-- main --> 
-   <div>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
     
-    <header class="appbar mdui-appbar mdui-appbar-fixed" importance="high"> 
-    <div class="mdui-toolbar mdui-color-theme card-content"> 
-     <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"> <i class="mdui-icon material-icons" mdui-tooltip="{content: '菜单'}">menu</i> </span> 
-     <div class="mdui-toolbar-spacer">
-       
-      <script src="https://cdn.jsdelivr.net/gh/ChizaoProject/chizaobook@latest/app.js"></script> 
-      <chizaobook style="line-height: 1em; color:antiquewhite;"> 
-       <script>
-               const chizaobook = new Chizaobook({
-                 container: "chizaobook", // string
-                   packageSource: "https://cdn.jsdelivr.net/gh/ChizaoProject/Packages@latest/package_source.json", // string
-                   packageType: null // int
-               });
-             </script> 
-       <!--<div class="mdui-chip" style="margin: auto; position: fixed; transform: translate(0, -50%);">
-             <span id="time" class="mdui-chip-title" style="transform: translate(0, -50%);"></span>
-             <script>
-               var datetime = new Date();
-               console.log(datetime);
-             </script>
-           </div>
-           --> 
-      </chizaobook>
+    
       
-     </div> 
-     <a href="" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Github'}"> 
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;"> 
-       <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"></path> 
-      </svg> </a> 
-    </div> 
-   </header>  
-
-    <div class="mdui-drawer mdui-drawer-close sidebar" id="main-drawer"> 
-     <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 75px;"> 
-       
-      <div class="
-                mdui-collapse-item
-                "> 
-       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple"> 
-        <i class="
-                    mdui-list-item-icon
-                    mdui-icon
-                    material-icons
-                    mdui-text-color-blue">near_me</i>
-        <div class="mdui-list-item-content">
-         A1
-        </div> 
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i> 
-       </div>
         
-         <div class="mdui-collapse-item-body mdui-list"> 
-          <a href="https://example.com/" target="_blank" mdui-tooltip="{content: 'example'}" class="
-                        mdui-list-item
-                        mdui-ripple
-                        ">B1</a> 
-         </div>
-         
-      </div> 
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
       
-     </div> 
-    </div> 
-   </div> 
-
-   <div id="container" class="container"> 
-    <div class="card"> 
-     <div id="card-content" class="card-content"> 
-      <center>
-       <div class="logo"></div>
-       <style>
-        .logo {
-	        width: 100px;
-	        height: 100px;
-	        margin-top: -50px;
-	        border:1px soild white;
-	        background: url('') no-repeat center;
-	        border-radius: 50px;
-	        background-size: 100px;
-        }
-       </style>
-      </center> 
-      <b class="nickname"></b> 
-      <br /> 
-      <b class="motto"></b> 
-     </div> 
-    </div> 
-
-    <div class="card" style="margin-top: 1%;"> 
-     <div id="card-content" class="card-content"> 
-      <div class="social">
-         
-        <a href="https://example.com" target="_blank"><button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'example'}"><span class="iconfont iconbili"></span></button></a> 
-       
-      </div> 
-     </div> 
-    </div> 
-
-   </div>  
-
-   <!-- footer --> 
-   <div id="footer" class="footer"> 
-    <p class="remark">
-      <br>
       
-      <br>Powered By <a href="https://hexo.io/" target="_blank"> Hexo </a> And <a href="https://mdui.org" target="_blank">MDUI</a>.<br /> Theme ❤ <a href="https://kuri.ink/" target="">kuri</a>. 
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Hexo</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-    </p> 
-   </div>  
-   <script async="" src="//blog.kuri.ink/lib/aplayer@1.10.0/aplayer.min.js" type="text/javascript"></script> 
-   <script async="" src="//blog.kuri.ink/lib/meting/meting.min.js" type="text/javascript"></script>
 
-   
+    <!-- Umami Analytics -->
 
-   
-      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-      <script>LA.init({id: "",ck: ""})</script>
-   
 
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 h-card">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Hexo</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">Home</a></li><!--
+   --><!--
+     --><li><a href="/about/">About</a></li><!--
+   --><!--
+     --><li><a href="/archives/">Writing</a></li><!--
+   --><!--
+     --><li><a target="_blank" rel="noopener" href="https://github.com/bolangLEE12138">Projects</a></li><!--
+   --><!--
+     --><li><a href="/search/">Search</a></li><!--
+   -->
+    </ul>
   </div>
- </body>
+</header>
+
+        
+        <section id="about" class="p-note">
+  
+  
+    <p>
+      Find me on
+      
+      
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="http://github.com/probberechts/cactus-dark" aria-label="github" title="github">
+            <i class="fa-brands fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="twitter" title="twitter">
+            <i class="fa-brands fa-twitter"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="facebook" title="facebook">
+            <i class="fa-brands fa-facebook"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
+        
+      
+        
+        
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:name@email.com" aria-label="mail" title="mail">
+            <i class="fa-solid fa-envelope"></i><!--
+      ---></a>
+        <!--
+    --->, 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://mastodon.social/@alice" aria-label="mastodon.social" title="mastodon.social">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> and 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://fosstodon.org/@alice" aria-label="fosstodon.org" title="fosstodon.org">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+    </p>
+  
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="/archives/">Writing</a></span>
+  
+  <ul class="post-list">
+    
+    
+      
+    
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2026-01-06T12:35:09.887Z" class="dt-published" itemprop="datePublished">2026-01-06</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2026/01/8d8e4446926f.html">Hello World</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/bolangLEE12138">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
 </html>
