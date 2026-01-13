@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="前言在搭建博客的过程中，遇到了图片显示异常（裂图）的问题，经检索后发现有许多相同的情况并提供的对应的解决方法。在大量尝试过后，我发现许多方法已经时过境迁，并不能解决我遇到的问题。本文皆在列举我解决过程。 那些并不适用于我的情况的方法： 开启 post_asset_folder 配置： 常规操作：将根目录 config文件中的该项设为 true，旨在为每篇文章生成同名附件夹。 遇到的问题：修改后导致">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客图片显示异常？">
+<meta property="og:url" content="http://example.com/2026/01/391b9b6ceffb.html">
+<meta property="og:site_name" content="BolangLEE&#39;s Blog">
+<meta property="og:description" content="前言在搭建博客的过程中，遇到了图片显示异常（裂图）的问题，经检索后发现有许多相同的情况并提供的对应的解决方法。在大量尝试过后，我发现许多方法已经时过境迁，并不能解决我遇到的问题。本文皆在列举我解决过程。 那些并不适用于我的情况的方法： 开启 post_asset_folder 配置： 常规操作：将根目录 config文件中的该项设为 true，旨在为每篇文章生成同名附件夹。 遇到的问题：修改后导致">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8%EF%BC%9F/Image-2026-01-13-161220.png">
+<meta property="article:published_time" content="2026-01-13T07:09:30.000Z">
+<meta property="article:modified_time" content="2026-01-13T08:16:14.516Z">
+<meta property="article:author" content="Lee">
+<meta property="article:tag" content="Bug">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8%EF%BC%9F/Image-2026-01-13-161220.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Hexo博客图片显示异常？</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2026/01/fdb527b9467c.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="weixin://dl/chat?http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-weixin"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-twitter"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-facebook"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-linkedin"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BA%9B%E5%B9%B6%E4%B8%8D%E9%80%82%E7%94%A8%E4%BA%8E%E6%88%91%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">那些并不适用于我的情况的方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">具体步骤：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Hexo博客图片显示异常？
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Lee</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-13T07:09:30.000Z" class="dt-published" itemprop="datePublished">13-Jan-2026</time>
+        
+        (Updated: <time datetime="2026-01-13T08:16:14.516Z" class="dt-updated" itemprop="dateModified">13-Jan-2026</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Bug/" rel="tag">Bug</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在搭建博客的过程中，遇到了图片显示异常（裂图）的问题，经检索后发现有许多相同的情况并提供的对应的解决方法。在大量尝试过后，我发现许多方法已经时过境迁，并不能解决我遇到的问题。本文皆在列举我解决过程。</p>
+<h2 id="那些并不适用于我的情况的方法："><a href="#那些并不适用于我的情况的方法：" class="headerlink" title="那些并不适用于我的情况的方法："></a>那些并不适用于我的情况的方法：</h2><ol>
+<li>开启 post_asset_folder 配置：<ul>
+<li>常规操作：将根目录 config文件中的该项设为 true，旨在为每篇文章生成同名附件夹。</li>
+<li>遇到的问题：修改后导致调试时无法读取 posts 文件夹下的文章，甚至出现 Cannot get &#x2F; 的路由错误。故放弃该方案。</li>
+</ul>
+</li>
+<li>安装资源管理插件：<ul>
+<li>尝试依赖： hexo-asset-image &#x2F; hexo-asset-img 等。</li>
+<li>现状分析：这些插件大多已多年未维护，与最新版 Hexo 存在兼容性问题。事实上，现代版本的 Hexo 已经优化了路径处理逻辑，不再强依赖此类插件。</li>
+</ul>
+</li>
+</ol>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>通过Google AI Studio给出的方法：统一管理资源文件夹，并利用Obsidian插件自动化路径转换。</p>
+<h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ol>
+<li>使用Obsidian打开博客的根目录，安装并启用“Custom attachment location”插件。</li>
+<li>依次打开“设置”-&gt;“文件与链接”。将附件默认存放地址改为根目录。</li>
+<li>打开”Custom attachment location“插件设置，将新附件位置改为“source&#x2F;images&#x2F;${noteFileName}”。此目的为，Hexo在构建时会把&#x3D;&#x3D;source&#x3D;&#x3D;根目录下所有非Markdown文件原封不动地复制到&#x3D;&#x3D;public&#x3D;&#x3D;根目录下，当然你也可以选择不加image，这样是为了方便博客图片的归档。</li>
+<li>上述操作完成后，直接CV图片到md文档中，插件会自动帮你把路径调整好，非常方便。</li>
+</ol>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>在检索问题时，发现了很多类似的方法，大家的解决办法都差不多，但很遗憾都不能解决我的问题。当然还是有博客提到了依赖过时的问题，在此非常感谢，稍后我也会把该博客链接放出来供大家参考。</p>
+<p>当其他人的办法无法解决问题的时候可以查阅官方文档，当然还是问AI更更加高效。（笑）</p>
+<p>力推啊哈哈哈<br><img src="/../images/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8%EF%BC%9F/Image-2026-01-13-161220.png"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BA%9B%E5%B9%B6%E4%B8%8D%E9%80%82%E7%94%A8%E4%BA%8E%E6%88%91%E7%9A%84%E6%83%85%E5%86%B5%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">那些并不适用于我的情况的方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">具体步骤：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="weixin://dl/chat?http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-weixin"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-twitter"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-facebook"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2026/01/391b9b6ceffb.html"><i class="fab fa-linkedin"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    Lee
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
