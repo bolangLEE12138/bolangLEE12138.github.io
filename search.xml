@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2026/01/f4c588ecd49b.html"/>
+      <url>/2026/01/f4c588ecd49b.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="配置conda环境"><a href="#配置conda环境" class="headerlink" title="配置conda环境"></a>配置conda环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n mat_ai python=<span class="number">3.9</span></span><br><span class="line">pip install pymatgen <span class="comment"># 处理晶体结构</span></span><br><span class="line">pip install matminer <span class="comment"># 从结构中提取特征</span></span><br><span class="line">pip install matplotlib</span><br></pre></td></tr></table></figure><h2 id="PyG"><a href="#PyG" class="headerlink" title="PyG"></a>PyG</h2><p>PyTorch Geometric 是一个强大的图神经网络库</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客图片显示异常？</title>
       <link href="/2026/01/391b9b6ceffb.html"/>
       <url>/2026/01/391b9b6ceffb.html</url>
