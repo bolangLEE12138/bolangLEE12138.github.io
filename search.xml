@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2026/01/0710949169cb.html"/>
+      <url>/2026/01/0710949169cb.html</url>
+      
+        <content type="html"><![CDATA[<p>近日在研究相关课题，在知乎上看到几篇不错的分享，故对其中的内容进行摘抄。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图神经网络预测晶体结构</title>
+      <link href="/2026/01/4f93ce39b128.html"/>
+      <url>/2026/01/4f93ce39b128.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="GNN模型架构"><a href="#GNN模型架构" class="headerlink" title="GNN模型架构"></a>GNN模型架构</h1><ol><li>引入晶体信息<ul><li>CGCNN（鼻祖代码）</li><li>OGCNN（引入轨道信息）</li><li>MegNet（加入外场信息）</li><li>GeoCGNN（）</li><li>ALIGNN（引入Line graph）</li></ul></li><li>通过算法提升<ul><li>A-CGCNN（attention）</li><li>Graphormer（transformer for materials）</li><li>DeeperGATGNN（解决过渡平滑问题，并在原模型中加深网络层层数）</li></ul></li></ol><h2 id="CGCNN（MIT）"><a href="#CGCNN（MIT）" class="headerlink" title="CGCNN（MIT）"></a>CGCNN（MIT）</h2><p>全称：晶体图卷积神经网络用于精确和可解释性的材料性质预测。 </p><p>把给DFT看的晶体结构，转变成图神经网络能读懂的结构图，用的是深度学习里处理社交网络和分子图的原理。</p><p><img src="/../images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/fig1.pdf"></p><h3 id="节点与边的图模型"><a href="#节点与边的图模型" class="headerlink" title="节点与边的图模型"></a>节点与边的图模型</h3><ul><li>每个原子在晶体结构中对应的一个图的节点；</li><li>节点特征包含：原子序数、电负性、共价半径等；</li><li>任意两原子间若满足距离 &lt; cutoff（截断距离，比如8 Å），形成边。</li></ul><h1 id="从CIF文件中构造图结构"><a href="#从CIF文件中构造图结构" class="headerlink" title="从CIF文件中构造图结构"></a>从CIF文件中构造图结构</h1><p>从晶体结构中提取出两个关键的结构矩阵：</p><ul><li>连接性矩阵（邻接矩阵索引）：明确了原子之间的拓扑连接关系；  </li><li>距离矩阵（边特征）：提供了每一对原子之间的几何距离信息。</li></ul><p>这两者共同刻画了<strong>原子在局域结构中的几何环境</strong>，而不再依赖原始的笛卡尔坐标。</p><p>更进一步，我们可以在此基础上融合：</p><ul><li>元素属性矩阵（原子序数、电负性、周期族信息等），作为节点特征；  </li><li>电荷态、配位数、局域对称性等高阶描述符**，作为辅助输入。</li></ul><p>于是，<strong>一个化合物就被转化成了一个由多重矩阵构成的图结构表示</strong>，包括：</p><ul><li>节点特征矩阵 <code>x</code>  </li><li>边连接矩阵 <code>edge_index</code>  </li><li>边特征矩阵 <code>edge_attr</code>  </li><li>可选：晶体级全局描述符</li></ul><p>这样就完成了从“人类可视坐标”向“神经网络可理解结构”的转换。</p><pre><code>从“原子坐标”到“数字矩阵”，这是结构数字化表达的核心思想。而深度学习，正是在这样的数值张量上，展开对材料规律的学习与建模。</code></pre><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>CGNN的核心工作是将晶体结构创新性地建模为图数据，其中原子作为节点，化学键作为边，并设计了一种能够同时融合节点（原子特征）和边（距离信息）的图卷积操作，从而直接从晶体的原子类型、坐标和晶胞结构端到端地学习并预测材料的各种性质。这一方法首次将图神经网络系统应用于材料科学，实现了对晶体平移和旋转不变性的自然满足，避免了传统方法中繁琐的人工特征工程，为材料性质的快速、准确预测提供了全新的数据驱动范式，极大地推动了材料信息学的发展，并成为后续众多晶体图神经网络模型的奠基性工作。</p><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li>重读经典(1)：CGCNN 如何定义“结构”？ - 清明浊景的文章 - 知乎<br><a href="https://zhuanlan.zhihu.com/p/1915509724675290808">https://zhuanlan.zhihu.com/p/1915509724675290808</a></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Literature Review </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>魔改hexo-bilibili-bangumi插件（1）</title>
       <link href="/2026/01/3e74283df02e.html"/>
       <url>/2026/01/3e74283df02e.html</url>
