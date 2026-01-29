@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="BolangLEE&#39;s Blog">
 <meta property="og:description" content="GNN模型架构 引入晶体信息 CGCNN（鼻祖代码） OGCNN（引入轨道信息） MegNet（加入外场信息） GeoCGNN（） ALIGNN（引入Line graph）   通过算法提升 A-CGCNN（attention） Graphormer（transformer for materials） DeeperGATGNN（解决过渡平滑问题，并在原模型中加深网络层层数）    CGCNN（M">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/fig1.pdf">
+<meta property="og:image" content="http://example.com/images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/CGCNN_Model_Framework.png">
 <meta property="article:published_time" content="2026-01-29T11:42:33.000Z">
-<meta property="article:modified_time" content="2026-01-29T11:43:48.179Z">
+<meta property="article:modified_time" content="2026-01-29T12:14:30.036Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="Literature Review">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/fig1.pdf">
+<meta name="twitter:image" content="http://example.com/images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/CGCNN_Model_Framework.png">
     
     
       
@@ -88,7 +88,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2026/01/0710949169cb.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2026/01/685376f2747e.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/2026/01/3e74283df02e.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -141,7 +141,7 @@
       
         <time datetime="2026-01-29T11:42:33.000Z" class="dt-published" itemprop="datePublished">29-Jan-2026</time>
         
-        (Updated: <time datetime="2026-01-29T11:43:48.179Z" class="dt-updated" itemprop="dateModified">29-Jan-2026</time>)
+        (Updated: <time datetime="2026-01-29T12:14:30.036Z" class="dt-updated" itemprop="dateModified">29-Jan-2026</time>)
         
       
     </div>
@@ -179,7 +179,7 @@
 </ol>
 <h2 id="CGCNN（MIT）"><a href="#CGCNN（MIT）" class="headerlink" title="CGCNN（MIT）"></a>CGCNN（MIT）</h2><p>全称：晶体图卷积神经网络用于精确和可解释性的材料性质预测。 </p>
 <p>把给DFT看的晶体结构，转变成图神经网络能读懂的结构图，用的是深度学习里处理社交网络和分子图的原理。</p>
-<p><img src="/../images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/fig1.pdf"></p>
+<p><img src="/../images/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84/CGCNN_Model_Framework.png"></p>
 <h3 id="节点与边的图模型"><a href="#节点与边的图模型" class="headerlink" title="节点与边的图模型"></a>节点与边的图模型</h3><ul>
 <li>每个原子在晶体结构中对应的一个图的节点；</li>
 <li>节点特征包含：原子序数、电负性、共价半径等；</li>
