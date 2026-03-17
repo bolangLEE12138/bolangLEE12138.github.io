@@ -830,7 +830,7 @@ body {
   padding-right: 2rem;
   max-width: 20em;
   max-height: calc(95vh - 7rem);
-  text-align: right;
+  text-align: left;
 }
 #header-post #toc a:hover {
   color: rgba(86,124,119,0.4);
@@ -895,7 +895,6 @@ body {
   }
   #header-post #actions ul {
     display: inline-block;
-    float: right;
   }
   #header-post #actions .info {
     display: inline;
