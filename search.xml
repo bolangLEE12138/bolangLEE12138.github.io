@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>cactus主题header改造：标题与导航整体对齐头像底部</title>
+      <link href="/2026/08/effbb031c6f7.html"/>
+      <url>/2026/08/effbb031c6f7.html</url>
+      
+        <content type="html"><![CDATA[<pre><code>本次修改全程由AI执行，模型为Deepseek-V4-Flash。该技术文档由该模型生成。</code></pre><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>头像放大到 120px 后，让”标题+导航”作为整体贴头像底部对齐，且头像尺寸变化时自动跟随。</p><h2 id="踩坑：-不能包块级元素"><a href="#踩坑：-不能包块级元素" class="headerlink" title="踩坑：&lt;a&gt; 不能包块级元素"></a>踩坑：<code>&lt;a&gt;</code> 不能包块级元素</h2><p>最初把标题、导航移进 <code>&lt;a&gt;</code> 并加 <code>display: flex</code>，布局无效。用 CDP 检查 DOM 才发现：<strong>HTML 解析器遇到 <code>&lt;a&gt;</code> 内的 div&#x2F;ul 会隐式闭合 <code>&lt;/a&gt;</code></strong>，块级内容被移到 <code>&lt;a&gt;</code> 外。原主题用 float 布局对 DOM 结构不敏感，所以没暴露；flex 依赖真实父子关系，直接失效。</p><h2 id="最终方案（改-2-个文件）"><a href="#最终方案（改-2-个文件）" class="headerlink" title="最终方案（改 2 个文件）"></a>最终方案（改 2 个文件）</h2><p><strong><code>header.ejs</code></strong>：<code>&lt;a&gt;</code> 只包 img（行内元素，合法），标题+导航放外层容器：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span> <span class="attr">id</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header-main&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;u-url u-uid&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;logo&quot;</span> <span class="attr">...</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header-text&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;p-name&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span>&lt;%= config.title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;nav&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong><code>header.styl</code></strong>：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header-main</span></span><br><span class="line">  <span class="attribute">display</span>: flex</span><br><span class="line">  <span class="attribute">align-items</span>: flex-end</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header-text</span></span><br><span class="line">  <span class="attribute">display</span>: flex</span><br><span class="line">  <span class="attribute">flex-direction</span>: column</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span></span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header-text</span> <span class="selector-id">#title</span> <span class="selector-tag">h1</span> <span class="selector-tag">a</span></span><br><span class="line">  <span class="attribute">color</span>: inherit</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#logo</span></span><br><span class="line">  <span class="attribute">display</span>: block        // block 消除行内基线空隙（否则差 <span class="number">7px</span>）</span><br><span class="line">  <span class="attribute">float</span>: none</span><br><span class="line">  <span class="attribute">flex-shrink</span>: <span class="number">0</span></span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span></span><br></pre></td></tr></table></figure><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>CDP 测量 <code>getBoundingClientRect()</code>：头像和导航 <code>bottom</code> 均为 186，精确齐平。移动端（400px 视口）验证正常。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol><li><code>&lt;a&gt;</code> 只放行内元素，块级内容放外面</li><li>flex 改结构后，用 <code>element.children</code> 确认真实 DOM，别只看模板</li><li>inline-block 的基线空隙会引入几像素误差，必要时用 <code>display: block</code></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术教程 </category>
+          
+          <category> 优化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>cactus主题优化</title>
       <link href="/2026/03/c32fd68a35be.html"/>
       <url>/2026/03/c32fd68a35be.html</url>
