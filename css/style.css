@@ -593,6 +593,19 @@ body {
   margin: 0 auto 2rem;
   width: 100%;
 }
+#header .header-main {
+  display: flex;
+  align-items: flex-end;
+}
+#header .header-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+#header .header-text #title h1 a {
+  color: inherit;
+}
 #header h1,
 #header .h1 {
   margin-top: 0;
@@ -612,13 +625,14 @@ body {
   text-decoration: none;
 }
 #header #logo {
-  display: inline-block;
-  float: left;
+  display: block;
+  float: none;
+  flex-shrink: 0;
   margin-right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
   border-radius: 5px;
-  background-size: 50px 50px;
+  background-size: 120px 120px;
   background-repeat: no-repeat;
 }
 #header #nav {
@@ -665,7 +679,7 @@ body {
   #header #title {
     display: table;
     margin-right: 5rem;
-    min-height: 50px;
+    min-height: 120px;
   }
   #header #title h1 {
     display: table-cell;
@@ -695,7 +709,7 @@ body {
   }
   #header #nav li:not(:first-child) {
     padding-top: 1rem;
-    padding-left: 70px;
+    padding-left: 140px;
     font-size: 1rem;
   }
 }
