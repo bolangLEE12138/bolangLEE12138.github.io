@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="本次修改全程由AI执行，模型为Deepseek-V4-Flash。该技术文档由该模型生成。  一、涉及文件（只有 2 个）   文件 作用    source&#x2F;life&#x2F;index.md 页面标题、简介正文   themes&#x2F;cactus&#x2F;layout&#x2F;life.ejs 页面布局、分区、列表、全部样式   二、工作机制（3 个关键点） layout 指定：index.md 的 front-matt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Life页面改造：分区列表与自定义指南">
+<meta property="og:url" content="http://example.com/2026/08/a549f1703ae2.html">
+<meta property="og:site_name" content="BolangLEE&#39;s Blog">
+<meta property="og:description" content="本次修改全程由AI执行，模型为Deepseek-V4-Flash。该技术文档由该模型生成。  一、涉及文件（只有 2 个）   文件 作用    source&#x2F;life&#x2F;index.md 页面标题、简介正文   themes&#x2F;cactus&#x2F;layout&#x2F;life.ejs 页面布局、分区、列表、全部样式   二、工作机制（3 个关键点） layout 指定：index.md 的 front-matt">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-25T04:40:00.000Z">
+<meta property="article:modified_time" content="2026-08-25T02:59:10.465Z">
+<meta property="article:author" content="Lee">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="优化">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Life页面改造：分区列表与自定义指南</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/bangumis/">Anime</a></li><!--
+     --><!--
+       --><li><a href="/life/">Life</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2026/08/89628b559389.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2026/08/effbb031c6f7.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="weixin://dl/chat?http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-weixin"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-twitter"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-facebook"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-linkedin"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B6%89%E5%8F%8A%E6%96%87%E4%BB%B6%EF%BC%88%E5%8F%AA%E6%9C%89-2-%E4%B8%AA%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、涉及文件（只有 2 个）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6%EF%BC%883-%E4%B8%AA%E5%85%B3%E9%94%AE%E7%82%B9%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、工作机制（3 个关键点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%97%A5%E5%B8%B8%E8%87%AA%E5%AE%9A%E4%B9%89%E9%80%9F%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">三、日常自定义速查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%86%99%E6%96%87%E7%AB%A0%E7%9A%84%E7%BA%A6%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text">四、写文章的约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%8C%E5%88%AB%E5%86%8D%E8%B8%A9%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">五、踩过的坑（重要，别再踩）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">六、常用操作</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Life页面改造：分区列表与自定义指南
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Lee</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-08-25T04:40:00.000Z" class="dt-published" itemprop="datePublished">25-Aug-2026</time>
+        
+        (Updated: <time datetime="2026-08-25T02:59:10.465Z" class="dt-updated" itemprop="dateModified">25-Aug-2026</time>)
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a> › <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E4%BC%98%E5%8C%96/">优化</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="p-category" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <pre><code>本次修改全程由AI执行，模型为Deepseek-V4-Flash。该技术文档由该模型生成。
+</code></pre>
+<h2 id="一、涉及文件（只有-2-个）"><a href="#一、涉及文件（只有-2-个）" class="headerlink" title="一、涉及文件（只有 2 个）"></a>一、涉及文件（只有 2 个）</h2><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source/life/index.md</code></td>
+<td>页面标题、简介正文</td>
+</tr>
+<tr>
+<td><code>themes/cactus/layout/life.ejs</code></td>
+<td>页面布局、分区、列表、<strong>全部样式</strong></td>
+</tr>
+</tbody></table>
+<h2 id="二、工作机制（3-个关键点）"><a href="#二、工作机制（3-个关键点）" class="headerlink" title="二、工作机制（3 个关键点）"></a>二、工作机制（3 个关键点）</h2><ol>
+<li><strong>layout 指定</strong>：<code>index.md</code> 的 front-matter 写 <code>layout: life</code> → Hexo 用 <code>life.ejs</code> 渲染此页</li>
+<li><strong>categories 分类筛选</strong>：文章所在的<strong>目录</strong>决定它进哪个分区（<code>_posts/探店/</code> → 🍽️ 分区；<code>_posts/景点/</code> → 🏞️ 分区）——模板按分类自动筛选，<strong>无需手动维护列表</strong></li>
+<li><strong>sections 数组</strong>：分区配置表（<code>title</code> &#x3D; 显示文字，<code>category</code> &#x3D; 对应分类名），新增分区只改这里</li>
+</ol>
+<h2 id="三、日常自定义速查"><a href="#三、日常自定义速查" class="headerlink" title="三、日常自定义速查"></a>三、日常自定义速查</h2><table>
+<thead>
+<tr>
+<th>想改什么</th>
+<th>改哪里</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页面标题（Footprint）</td>
+<td><code>index.md</code> 的 <code>title</code></td>
+</tr>
+<tr>
+<td>副标题（斜体那句）</td>
+<td><code>life.ejs</code> 的 <code>.tagline</code> 那一行</td>
+</tr>
+<tr>
+<td>简介文字</td>
+<td><code>index.md</code> 正文</td>
+</tr>
+<tr>
+<td>分区标题&#x2F;图标</td>
+<td><code>life.ejs</code> 的 <code>sections</code> 数组里的 <code>title</code></td>
+</tr>
+<tr>
+<td><strong>新增分区</strong></td>
+<td><code>sections</code> 数组加一行 <code>{ title: &#39;🎬 演出&#39;, category: &#39;演出&#39; }</code> + 新建目录 <code>_posts/演出/</code> 放文章</td>
+</tr>
+<tr>
+<td>各级间距</td>
+<td><code>life.ejs</code> 的 CSS margin 值（1rem&#x3D;16px）</td>
+</tr>
+<tr>
+<td>列表&#x2F;日期样式</td>
+<td><code>life.ejs</code> 的 CSS</td>
+</tr>
+</tbody></table>
+<h2 id="四、写文章的约定"><a href="#四、写文章的约定" class="headerlink" title="四、写文章的约定"></a>四、写文章的约定</h2><p><strong>目录决定分区</strong>（<code>hexo-auto-category</code> 按目录自动生成分类）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span>/_posts/探店/店名.md   → 🍽️ 探店分区</span><br><span class="line"><span class="built_in">source</span>/_posts/景点/地名.md   → 🏞️ 景点分区</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>放对目录即可，<code>categories</code> 不用手动写</li>
+</ul>
+<h2 id="五、踩过的坑（重要，别再踩）"><a href="#五、踩过的坑（重要，别再踩）" class="headerlink" title="五、踩过的坑（重要，别再踩）"></a>五、踩过的坑（重要，别再踩）</h2><ol>
+<li><strong><code>&lt;div class=&quot;intro&quot;&gt;</code> 包裹结构不能删</strong>——缺了简介渲染错乱、页面错位（已踩两次）</li>
+<li><strong>ejs 注释用 <code>&lt;%# %&gt;</code></strong>——裸写 <code>//</code> 会原样显示到页面</li>
+<li><strong><code>&lt;%- page.content %&gt;</code> 必须用 <code>-%&gt;</code></strong>——用 <code>&lt;%= %&gt;</code> 会转义 HTML，页面露出 <code>&lt;p&gt;</code> 标签</li>
+<li><strong>改完必须 <code>hexo g</code>（或 <code>./test.sh</code>）才生效</strong>，改 CSS 同理</li>
+<li><strong>间距收紧的三层结构</strong>：header 的 <code>margin-bottom</code>（全局）+ <code>.content</code> 的 <code>padding-top</code>（全局）+ <code>.life-hero</code> 的 <code>margin-top</code>（页面级）——要贴导航栏需三层都改（life.ejs 里已有 <code>.content</code> 覆盖行）</li>
+</ol>
+<h2 id="六、常用操作"><a href="#六、常用操作" class="headerlink" title="六、常用操作"></a>六、常用操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./test.sh     <span class="comment"># 本地预览</span></span><br><span class="line">./deploy.sh   <span class="comment"># 发布</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/bangumis/">Anime</a></li>
+        
+          <li><a href="/life/">Life</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B6%89%E5%8F%8A%E6%96%87%E4%BB%B6%EF%BC%88%E5%8F%AA%E6%9C%89-2-%E4%B8%AA%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、涉及文件（只有 2 个）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6%EF%BC%883-%E4%B8%AA%E5%85%B3%E9%94%AE%E7%82%B9%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、工作机制（3 个关键点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%97%A5%E5%B8%B8%E8%87%AA%E5%AE%9A%E4%B9%89%E9%80%9F%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">三、日常自定义速查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%86%99%E6%96%87%E7%AB%A0%E7%9A%84%E7%BA%A6%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text">四、写文章的约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%8C%E5%88%AB%E5%86%8D%E8%B8%A9%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">五、踩过的坑（重要，别再踩）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">六、常用操作</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="weixin://dl/chat?http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-weixin"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-twitter"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-facebook"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2026/08/a549f1703ae2.html"><i class="fab fa-linkedin"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+      <div class="footer-left">
+        Copyright &copy;
+        
+        
+        2026
+        Lee
+      </div>
+      <div class="footer-right">
+        <nav>
+          <ul>
+            <!--
+          --><li><a href="/">Home</a></li><!--
+        --><!--
+          --><li><a href="/archives/">Writing</a></li><!--
+        --><!--
+          --><li><a href="/categories/">Category</a></li><!--
+        --><!--
+          --><li><a href="/bangumis/">Anime</a></li><!--
+        --><!--
+          --><li><a href="/life/">Life</a></li><!--
+        --><!--
+          --><li><a href="/search/">Search</a></li><!--
+        -->
+          </ul>
+          <ul>
+            
+              <!-- 不蒜子统计 -->
+              <span id="busuanzi_container_site_pv">
+                  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+              </span>
+              <span class="post-meta-divider">|</span>
+              <span id="busuanzi_container_site_uv" style='display:none'>
+                      本站访客数<span id="busuanzi_value_site_uv"></span>人
+              </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            
+          </ul>
+        </nav>
+      </div>
+      
+</footer>
+
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

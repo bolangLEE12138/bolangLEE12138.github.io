@@ -1131,7 +1131,7 @@ article .content img,
 article .content video {
   display: block;
   margin: auto;
-  max-width: 100%;
+  max-width: 500px;
   height: auto;
 }
 article .content .video-container {
