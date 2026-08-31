@@ -111,3 +111,11 @@ $(document).ready(function() {
     }
   }
 });
+
+// 番剧/书籍/影视分页按钮（Top/上一页/下一页/End）点击后回到页面顶部
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.bangumi-button');
+  if (btn) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
